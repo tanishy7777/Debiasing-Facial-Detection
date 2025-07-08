@@ -1,4 +1,7 @@
 # Debiasing Facial Detection Systems 
+Comparision between the baseline CNN model and the DBVAE model.
+![image](https://github.com/user-attachments/assets/46550f71-7a64-4344-b214-194ecbdd802d)
+
 ## Motivation
 
 In this project, I’m exploring two critical aspects of applied deep learning: facial detection and algorithmic bias.
@@ -32,6 +35,7 @@ Two fully connected layers (classification)
 High overall accuracy on the training set (e.g., 99.54%)
 
 Observed Bias: When evaluated on the balanced test set, the model's accuracy varies significantly across demographic groups, typically favoring over-represented categories (e.g., light-skinned females).
+![image](https://github.com/user-attachments/assets/95c12952-7568-4dcd-9f8b-0911d417e6b4)
 
 ## Why Does Bias Occur?
 Imbalanced Training Data: Over-representation of certain features (e.g., light skin, female faces) in the training set leads to higher accuracy for those groups.
@@ -39,6 +43,7 @@ Imbalanced Training Data: Over-representation of certain features (e.g., light s
 Manual Annotation Limitations: Annotating and balancing every possible subgroup is labor-intensive and may not capture all sources of bias.
 
 ## Unsupervised Debiasing with Variational Autoencoders (VAEs)
+![DB-VAE](https://raw.githubusercontent.com/MITDeepLearning/introtodeeplearning/2019/lab2/img/DB-VAE.png)
 ### Key Idea
 Instead of manual annotation, use a VAE to learn the latent structure of the data in an unsupervised manner. The VAE encodes each image into a set of latent variables, capturing underlying features (e.g., skin tone, accessories, pose).
 
@@ -75,8 +80,6 @@ After each epoch, the model:
 
 
 ## Conclusion
-Latent variable modeling with VAEs enables unsupervised discovery of under-represented features in facial datasets.
-
-Adaptive resampling based on these latent features during training leads to debiased facial detection models.
-
-The DB-VAE approach mitigates algorithmic b
+- Latent variable modeling with VAEs enables unsupervised discovery of under-represented features in facial datasets.
+- Adaptive resampling based on these latent features during training leads to debiased facial detection models.
+- The DB-VAE approach mitigates algorithmic bias without requiring exhaustive manual annotation, resulting in fairer and more trustworthy AI systems.
